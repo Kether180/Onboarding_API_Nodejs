@@ -1,0 +1,24 @@
+{
+  "name": "makeimpact_helloflow_api",
+  "version": "1.0.0",
+  "description": "//const functions = require(\"firebase-functions\"); // The Cloud Functions for Firebase SDK to create Cloud Functions and set up triggers.\r //const admin = require(\"firebase-admin\");\r //admin.initializeApp();\r //const fetch = require('node-fetch'); // The Firebase Admin SDK to access Firestore.\r //const http = require (\"http\");",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kether180/Makeimpact_helloflow_api.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Kether180/Makeimpact_helloflow_api/issues"
+  },
+  "homepage": "https://github.com/Kether180/Makeimpact_helloflow_api#readme",
+  "dependencies": {
+    "axios": "^0.24.0",
+    "body-parser": "^1.19.1",
+    "express": "^4.17.2"
+  }
+}

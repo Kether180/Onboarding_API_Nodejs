@@ -1,5 +1,3 @@
-# Makeimpact_helloflow_api
-
 
 //const functions = require("firebase-functions"); // The Cloud Functions for Firebase SDK to create Cloud Functions and set up triggers.
 //const admin = require("firebase-admin");
