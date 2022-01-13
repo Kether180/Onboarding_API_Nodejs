@@ -1,0 +1,112 @@
+{
+	"info": {
+		"_postman_id": "6139cad2-5989-44f4-b99d-e9302ae5d518",
+		"name": "exportApi",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get access token (this has to be provided to all subsequent requests in the authorization header)",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "https://api.helloflow.io/api/export/oauth/accessToken?clientId=63894863750735455373699675&clientSecret=1WPWrl21%23%23tz%23~g86SgWhL!gDnkK6Fi6",
+					"protocol": "https",
+					"host": [
+						"api",
+						"helloflow",
+						"io"
+					],
+					"path": [
+						"api",
+						"export",
+						"oauth",
+						"accessToken"
+					],
+					"query": [
+						{
+							"key": "clientId",
+							"value": "63894863750735455373699675"
+						},
+						{
+							"key": "clientSecret",
+							"value": "1WPWrl21##tz#~g86SgWhL!gDnkK6Fi6"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all clients from a flow",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJraWQiOiJHXC9NcHVuWlRNY2NxM1VIMDZWaDFUaEo2eUZuY2x6WU1Kc0o3MnNcL1R5clE9IiwiYWxnIjoiUlMyNTYifQ.eyJjdXN0b206b3JnYW5pemF0aW9uIjoiNDk5OTUxZDEtODdjNy00MjYxLWE4MGMtMzZhY2QyYmYzNzU2Iiwic3ViIjoiMGNmMTE0ODItOGEwMC00NGVmLWExNzctZjhhYzNmODE5MzE3IiwiYXVkIjoiMWdjZGwxaGN2a2R0YmJ2Mjk5cWZzM3FoajYiLCJldmVudF9pZCI6IjMyN2VlZGQ5LWY0ZTMtNDNlZS05ZGJjLWZiZjVmMWExMTY2MyIsInRva2VuX3VzZSI6ImlkIiwiYXV0aF90aW1lIjoxNjQyMDczNTM5LCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAuZXUtbm9ydGgtMS5hbWF6b25hd3MuY29tXC9ldS1ub3J0aC0xX2ZBcmlYS3NIdiIsImNvZ25pdG86dXNlcm5hbWUiOiI2Mzg5NDg2Mzc1MDczNTQ1NTM3MzY5OTY3NSIsInByZWZlcnJlZF91c2VybmFtZSI6IjQ5OTk1MWQxLTg3YzctNDI2MS1hODBjLTM2YWNkMmJmMzc1NiIsImV4cCI6MTY0MjA3NzEzOSwiaWF0IjoxNjQyMDczNTM5fQ.K1DxTj8FTa89AWXv__u9idMRJXOFVpUxfviFuw8m5kiawzet5pTGrCdjvhdM5bfVjPgT9pAL02B6oQrvmh8-ChhoU__GyFcAViUCkhTwKXaP0-Uj89RyBulMJAbD1OvR5VtB4OQbaeybDSTuaENB7GOV56lAbwyE7doxmT4ldEzGU0Tzta0412hDBEcTVFLFeSignw6hUNFDoZXphWyVlC0Q6Y2LqNINUNGlXOxzWXwrrXruSHpPvd43WP1LoNnQngSr90r1bIUJQ-rV-9WrqM-DX3D5yj8ey2xZyxBKI1Gky5NPzd8sufZ14PrhpYVrrS83kT1zjIwcNKxoleG3xw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.helloflow.io/api/export/v1/query/clients/61a8c241549eec02838a4485",
+					"protocol": "https",
+					"host": [
+						"api",
+						"helloflow",
+						"io"
+					],
+					"path": [
+						"api",
+						"export",
+						"v1",
+						"query",
+						"clients",
+						"61a8c241549eec02838a4485"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get single client from a flow",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJraWQiOiJHXC9NcHVuWlRNY2NxM1VIMDZWaDFUaEo2eUZuY2x6WU1Kc0o3MnNcL1R5clE9IiwiYWxnIjoiUlMyNTYifQ.eyJjdXN0b206b3JnYW5pemF0aW9uIjoiNDk5OTUxZDEtODdjNy00MjYxLWE4MGMtMzZhY2QyYmYzNzU2Iiwic3ViIjoiMGNmMTE0ODItOGEwMC00NGVmLWExNzctZjhhYzNmODE5MzE3IiwiYXVkIjoiMWdjZGwxaGN2a2R0YmJ2Mjk5cWZzM3FoajYiLCJldmVudF9pZCI6IjMyN2VlZGQ5LWY0ZTMtNDNlZS05ZGJjLWZiZjVmMWExMTY2MyIsInRva2VuX3VzZSI6ImlkIiwiYXV0aF90aW1lIjoxNjQyMDczNTM5LCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAuZXUtbm9ydGgtMS5hbWF6b25hd3MuY29tXC9ldS1ub3J0aC0xX2ZBcmlYS3NIdiIsImNvZ25pdG86dXNlcm5hbWUiOiI2Mzg5NDg2Mzc1MDczNTQ1NTM3MzY5OTY3NSIsInByZWZlcnJlZF91c2VybmFtZSI6IjQ5OTk1MWQxLTg3YzctNDI2MS1hODBjLTM2YWNkMmJmMzc1NiIsImV4cCI6MTY0MjA3NzEzOSwiaWF0IjoxNjQyMDczNTM5fQ.K1DxTj8FTa89AWXv__u9idMRJXOFVpUxfviFuw8m5kiawzet5pTGrCdjvhdM5bfVjPgT9pAL02B6oQrvmh8-ChhoU__GyFcAViUCkhTwKXaP0-Uj89RyBulMJAbD1OvR5VtB4OQbaeybDSTuaENB7GOV56lAbwyE7doxmT4ldEzGU0Tzta0412hDBEcTVFLFeSignw6hUNFDoZXphWyVlC0Q6Y2LqNINUNGlXOxzWXwrrXruSHpPvd43WP1LoNnQngSr90r1bIUJQ-rV-9WrqM-DX3D5yj8ey2xZyxBKI1Gky5NPzd8sufZ14PrhpYVrrS83kT1zjIwcNKxoleG3xw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.helloflow.io/api/export/v1/query/client/61af468bfa93aa72ab966752",
+					"protocol": "https",
+					"host": [
+						"api",
+						"helloflow",
+						"io"
+					],
+					"path": [
+						"api",
+						"export",
+						"v1",
+						"query",
+						"client",
+						"61af468bfa93aa72ab966752"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
