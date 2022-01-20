@@ -3,6 +3,7 @@ const app = express();
 const axios = require("axios");
 const bodyParser = require("body-parser");
 const port = 3000;
+const fetch = require("fetch");
 
 
 
@@ -54,7 +55,7 @@ app.get("/profilesId", async (req, res) => {
 
         'Content-type': 'application/json',
 
-        'Authorization': 'Bearer eyJraWQiOiJHXC9NcHVuWlRNY2NxM1VIMDZWaDFUaEo2eUZuY2x6WU1Kc0o3MnNcL1R5clE9IiwiYWxnIjoiUlMyNTYifQ.eyJjdXN0b206b3JnYW5pemF0aW9uIjoiNDk5OTUxZDEtODdjNy00MjYxLWE4MGMtMzZhY2QyYmYzNzU2Iiwic3ViIjoiMGNmMTE0ODItOGEwMC00NGVmLWExNzctZjhhYzNmODE5MzE3IiwiYXVkIjoiMWdjZGwxaGN2a2R0YmJ2Mjk5cWZzM3FoajYiLCJldmVudF9pZCI6ImVkMDY0YTEzLTBjYWItNGY0Ny1iOGE4LTY1NzRhM2QwNTc2YiIsInRva2VuX3VzZSI6ImlkIiwiYXV0aF90aW1lIjoxNjQyNDIzMTgyLCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAuZXUtbm9ydGgtMS5hbWF6b25hd3MuY29tXC9ldS1ub3J0aC0xX2ZBcmlYS3NIdiIsImNvZ25pdG86dXNlcm5hbWUiOiI2Mzg5NDg2Mzc1MDczNTQ1NTM3MzY5OTY3NSIsInByZWZlcnJlZF91c2VybmFtZSI6IjQ5OTk1MWQxLTg3YzctNDI2MS1hODBjLTM2YWNkMmJmMzc1NiIsImV4cCI6MTY0MjQyNjc4MiwiaWF0IjoxNjQyNDIzMTgyfQ.Uf_zWsl91H3huMQw0nKDl2hUV1GRRCL8FLbN8rBgD9DigDQFoWSWMjNVYvpJpdXZNz1kOMqSvRbuIne0Jay2Wn2B5MhH9rKrJ-0418k76E9DJvzXxZXFtobPrOZc3D7K9YsTqkJ8vjrimquGR2ChRJxpEgOAEWilBTv6OCX3SmJ_keQjncwDq4-3gjuwVXj8ok2sw6xprCdXEW049K4Ptv-KjacLbToghT3On1hV4zQoh-_mXPV9HwLwPm7bTz-l2_ly3ruUIpyCaYaPIW-qBH2S5or9FmFrFkXKHOjde5QptaqhYAtdAglxxrtFVUXUyTrdMuUXo-hT8v6zl0z1WA',
+        'Authorization': 'Bearer eyJraWQiOiJHXC9NcHVuWlRNY2NxM1VIMDZWaDFUaEo2eUZuY2x6WU1Kc0o3MnNcL1R5clE9IiwiYWxnIjoiUlMyNTYifQ.eyJjdXN0b206b3JnYW5pemF0aW9uIjoiNDk5OTUxZDEtODdjNy00MjYxLWE4MGMtMzZhY2QyYmYzNzU2Iiwic3ViIjoiMGNmMTE0ODItOGEwMC00NGVmLWExNzctZjhhYzNmODE5MzE3IiwiYXVkIjoiMWdjZGwxaGN2a2R0YmJ2Mjk5cWZzM3FoajYiLCJldmVudF9pZCI6IjFhNGNiZmFmLTQ2OGItNDVhMS04ODE4LWRiNDkxZDJmNWUyNCIsInRva2VuX3VzZSI6ImlkIiwiYXV0aF90aW1lIjoxNjQyNTE2NjE4LCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAuZXUtbm9ydGgtMS5hbWF6b25hd3MuY29tXC9ldS1ub3J0aC0xX2ZBcmlYS3NIdiIsImNvZ25pdG86dXNlcm5hbWUiOiI2Mzg5NDg2Mzc1MDczNTQ1NTM3MzY5OTY3NSIsInByZWZlcnJlZF91c2VybmFtZSI6IjQ5OTk1MWQxLTg3YzctNDI2MS1hODBjLTM2YWNkMmJmMzc1NiIsImV4cCI6MTY0MjUyMDIxOCwiaWF0IjoxNjQyNTE2NjE4fQ.zwvldn0WaQ8W8gfnWrCoKRyzFxqd3_vWZsLFfMJrUsGY0mlfo_irsMYZjKyGSg39GdlmmmJJVwPUi45OtVVXdGok6YEBIbFwfNturk5iVzMOXh7xzogoSQybfeV46-Ll1jEIysYkHKViKLBYGcNZv1XZu4OTMfN3lILRVDrRVLVk02uC1RPZRXU5lrnoQ6rpscLlYGjKRG0Maw5BRajNhO0Gz9WfFfZmUfr6nkPwKjH8Msi1XTYFySc4aood5RXNU2LSh8Nbr3F166ZV82HwjsCjFLy1Y1Izfe5DO56VRxrVOTZZG-EVr6qcRIFAmPplzwQvSbzXJH2n9zvePu0OUA',
           /// token changes every 15 min, get new one and add it here.
       },
 
@@ -81,8 +82,8 @@ app.get("/client", async (req, res) => {
       headers: {
 
         'Content-Type': 'application/json',
-        // i've got this from the first request
-        'Authorization': 'Bearer eyJraWQiOiJHXC9NcHVuWlRNY2NxM1VIMDZWaDFUaEo2eUZuY2x6WU1Kc0o3MnNcL1R5clE9IiwiYWxnIjoiUlMyNTYifQ.eyJjdXN0b206b3JnYW5pemF0aW9uIjoiNDk5OTUxZDEtODdjNy00MjYxLWE4MGMtMzZhY2QyYmYzNzU2Iiwic3ViIjoiMGNmMTE0ODItOGEwMC00NGVmLWExNzctZjhhYzNmODE5MzE3IiwiYXVkIjoiMWdjZGwxaGN2a2R0YmJ2Mjk5cWZzM3FoajYiLCJldmVudF9pZCI6ImVkMDY0YTEzLTBjYWItNGY0Ny1iOGE4LTY1NzRhM2QwNTc2YiIsInRva2VuX3VzZSI6ImlkIiwiYXV0aF90aW1lIjoxNjQyNDIzMTgyLCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAuZXUtbm9ydGgtMS5hbWF6b25hd3MuY29tXC9ldS1ub3J0aC0xX2ZBcmlYS3NIdiIsImNvZ25pdG86dXNlcm5hbWUiOiI2Mzg5NDg2Mzc1MDczNTQ1NTM3MzY5OTY3NSIsInByZWZlcnJlZF91c2VybmFtZSI6IjQ5OTk1MWQxLTg3YzctNDI2MS1hODBjLTM2YWNkMmJmMzc1NiIsImV4cCI6MTY0MjQyNjc4MiwiaWF0IjoxNjQyNDIzMTgyfQ.Uf_zWsl91H3huMQw0nKDl2hUV1GRRCL8FLbN8rBgD9DigDQFoWSWMjNVYvpJpdXZNz1kOMqSvRbuIne0Jay2Wn2B5MhH9rKrJ-0418k76E9DJvzXxZXFtobPrOZc3D7K9YsTqkJ8vjrimquGR2ChRJxpEgOAEWilBTv6OCX3SmJ_keQjncwDq4-3gjuwVXj8ok2sw6xprCdXEW049K4Ptv-KjacLbToghT3On1hV4zQoh-_mXPV9HwLwPm7bTz-l2_ly3ruUIpyCaYaPIW-qBH2S5or9FmFrFkXKHOjde5QptaqhYAtdAglxxrtFVUXUyTrdMuUXo-hT8v6zl0z1WA',
+       
+        'Authorization': 'Bearer eyJraWQiOiJHXC9NcHVuWlRNY2NxM1VIMDZWaDFUaEo2eUZuY2x6WU1Kc0o3MnNcL1R5clE9IiwiYWxnIjoiUlMyNTYifQ.eyJjdXN0b206b3JnYW5pemF0aW9uIjoiNDk5OTUxZDEtODdjNy00MjYxLWE4MGMtMzZhY2QyYmYzNzU2Iiwic3ViIjoiMGNmMTE0ODItOGEwMC00NGVmLWExNzctZjhhYzNmODE5MzE3IiwiYXVkIjoiMWdjZGwxaGN2a2R0YmJ2Mjk5cWZzM3FoajYiLCJldmVudF9pZCI6IjFhNGNiZmFmLTQ2OGItNDVhMS04ODE4LWRiNDkxZDJmNWUyNCIsInRva2VuX3VzZSI6ImlkIiwiYXV0aF90aW1lIjoxNjQyNTE2NjE4LCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAuZXUtbm9ydGgtMS5hbWF6b25hd3MuY29tXC9ldS1ub3J0aC0xX2ZBcmlYS3NIdiIsImNvZ25pdG86dXNlcm5hbWUiOiI2Mzg5NDg2Mzc1MDczNTQ1NTM3MzY5OTY3NSIsInByZWZlcnJlZF91c2VybmFtZSI6IjQ5OTk1MWQxLTg3YzctNDI2MS1hODBjLTM2YWNkMmJmMzc1NiIsImV4cCI6MTY0MjUyMDIxOCwiaWF0IjoxNjQyNTE2NjE4fQ.zwvldn0WaQ8W8gfnWrCoKRyzFxqd3_vWZsLFfMJrUsGY0mlfo_irsMYZjKyGSg39GdlmmmJJVwPUi45OtVVXdGok6YEBIbFwfNturk5iVzMOXh7xzogoSQybfeV46-Ll1jEIysYkHKViKLBYGcNZv1XZu4OTMfN3lILRVDrRVLVk02uC1RPZRXU5lrnoQ6rpscLlYGjKRG0Maw5BRajNhO0Gz9WfFfZmUfr6nkPwKjH8Msi1XTYFySc4aood5RXNU2LSh8Nbr3F166ZV82HwjsCjFLy1Y1Izfe5DO56VRxrVOTZZG-EVr6qcRIFAmPplzwQvSbzXJH2n9zvePu0OUA',
       },
 
     });
@@ -97,7 +98,7 @@ app.get("/client", async (req, res) => {
 app.get("/flow", async (req, res) => {
   const flow = req.params.flow;
   try {
-    const response = await axios('https://api.helloflow.io/api/export/v1/query/client/flow/63894863750735455373699675/61a8c241549eec02838a4485', { // clientid + flowid
+    const response = await axios('https://api.helloflow.io/api/export/v1/query/client/flow/61af800cfa93aa72ab9861de/61a8c241549eec02838a4485', { // clientid + flowid
 
       method: 'GET',
 
@@ -105,7 +106,7 @@ app.get("/flow", async (req, res) => {
 
         'Content-Type': 'application/json',
      
-        'Authorization': 'Bearer eyJraWQiOiJHXC9NcHVuWlRNY2NxM1VIMDZWaDFUaEo2eUZuY2x6WU1Kc0o3MnNcL1R5clE9IiwiYWxnIjoiUlMyNTYifQ.eyJjdXN0b206b3JnYW5pemF0aW9uIjoiNDk5OTUxZDEtODdjNy00MjYxLWE4MGMtMzZhY2QyYmYzNzU2Iiwic3ViIjoiMGNmMTE0ODItOGEwMC00NGVmLWExNzctZjhhYzNmODE5MzE3IiwiYXVkIjoiMWdjZGwxaGN2a2R0YmJ2Mjk5cWZzM3FoajYiLCJldmVudF9pZCI6ImVkMDY0YTEzLTBjYWItNGY0Ny1iOGE4LTY1NzRhM2QwNTc2YiIsInRva2VuX3VzZSI6ImlkIiwiYXV0aF90aW1lIjoxNjQyNDIzMTgyLCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAuZXUtbm9ydGgtMS5hbWF6b25hd3MuY29tXC9ldS1ub3J0aC0xX2ZBcmlYS3NIdiIsImNvZ25pdG86dXNlcm5hbWUiOiI2Mzg5NDg2Mzc1MDczNTQ1NTM3MzY5OTY3NSIsInByZWZlcnJlZF91c2VybmFtZSI6IjQ5OTk1MWQxLTg3YzctNDI2MS1hODBjLTM2YWNkMmJmMzc1NiIsImV4cCI6MTY0MjQyNjc4MiwiaWF0IjoxNjQyNDIzMTgyfQ.Uf_zWsl91H3huMQw0nKDl2hUV1GRRCL8FLbN8rBgD9DigDQFoWSWMjNVYvpJpdXZNz1kOMqSvRbuIne0Jay2Wn2B5MhH9rKrJ-0418k76E9DJvzXxZXFtobPrOZc3D7K9YsTqkJ8vjrimquGR2ChRJxpEgOAEWilBTv6OCX3SmJ_keQjncwDq4-3gjuwVXj8ok2sw6xprCdXEW049K4Ptv-KjacLbToghT3On1hV4zQoh-_mXPV9HwLwPm7bTz-l2_ly3ruUIpyCaYaPIW-qBH2S5or9FmFrFkXKHOjde5QptaqhYAtdAglxxrtFVUXUyTrdMuUXo-hT8v6zl0z1WA',
+        'Authorization': 'Bearer eyJraWQiOiJHXC9NcHVuWlRNY2NxM1VIMDZWaDFUaEo2eUZuY2x6WU1Kc0o3MnNcL1R5clE9IiwiYWxnIjoiUlMyNTYifQ.eyJjdXN0b206b3JnYW5pemF0aW9uIjoiNDk5OTUxZDEtODdjNy00MjYxLWE4MGMtMzZhY2QyYmYzNzU2Iiwic3ViIjoiMGNmMTE0ODItOGEwMC00NGVmLWExNzctZjhhYzNmODE5MzE3IiwiYXVkIjoiMWdjZGwxaGN2a2R0YmJ2Mjk5cWZzM3FoajYiLCJldmVudF9pZCI6IjFhNGNiZmFmLTQ2OGItNDVhMS04ODE4LWRiNDkxZDJmNWUyNCIsInRva2VuX3VzZSI6ImlkIiwiYXV0aF90aW1lIjoxNjQyNTE2NjE4LCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAuZXUtbm9ydGgtMS5hbWF6b25hd3MuY29tXC9ldS1ub3J0aC0xX2ZBcmlYS3NIdiIsImNvZ25pdG86dXNlcm5hbWUiOiI2Mzg5NDg2Mzc1MDczNTQ1NTM3MzY5OTY3NSIsInByZWZlcnJlZF91c2VybmFtZSI6IjQ5OTk1MWQxLTg3YzctNDI2MS1hODBjLTM2YWNkMmJmMzc1NiIsImV4cCI6MTY0MjUyMDIxOCwiaWF0IjoxNjQyNTE2NjE4fQ.zwvldn0WaQ8W8gfnWrCoKRyzFxqd3_vWZsLFfMJrUsGY0mlfo_irsMYZjKyGSg39GdlmmmJJVwPUi45OtVVXdGok6YEBIbFwfNturk5iVzMOXh7xzogoSQybfeV46-Ll1jEIysYkHKViKLBYGcNZv1XZu4OTMfN3lILRVDrRVLVk02uC1RPZRXU5lrnoQ6rpscLlYGjKRG0Maw5BRajNhO0Gz9WfFfZmUfr6nkPwKjH8Msi1XTYFySc4aood5RXNU2LSh8Nbr3F166ZV82HwjsCjFLy1Y1Izfe5DO56VRxrVOTZZG-EVr6qcRIFAmPplzwQvSbzXJH2n9zvePu0OUA',
       },
 
     });
@@ -115,12 +116,18 @@ app.get("/flow", async (req, res) => {
   }
 }); 
 
-// this is for files , filedata from our Hello Flow builder. you get the key from response data , if you have a file > keyvalue.
+// this is for files , filedata from our Hello Flow builder. you get the key from response data , if you have a file > keyvalue.  application/octet-stream -
 
-app.get("/query", async (req, res) => {
+app.get("/file", async (req, res) => {
+  const file = req.params.file;
   try {
-    const response = await axios('https://api.helloflow.io/api/export/v1/query/file', {
+    const response = await fetch('https://api.helloflow.io/api/export/v1/query/file', {
       method: 'GET',
+
+      headers: {
+
+        'Content-Type': 'application/octet-stream'
+      },
       params: {
         "key": "string",  // key value goes here.
       },
@@ -136,7 +143,7 @@ app.get("/query", async (req, res) => {
 app.post("/subscribe", function (req, res) {
 
 	console.log(req.body);
-	res.setHeader('Content-Type', 'application/json');
+	res.setHeader('Content-Type', 'application/octet-stream');
 
 	res.end(
     JSON.stringify({
@@ -150,7 +157,7 @@ var server = app.listen(4000, function () {
    console.log("Example app listening at http://%s:%s", host, port)
 })
 
-console.log('Navigate to http://localhost:4000/.');
+console.log('Navigate to http://localhost:4000/subscribe.');
 
 }); 
 

@@ -21,6 +21,7 @@
     "body-parser": "^1.19.1",
     "config.json": "^0.0.1",
     "express": "^4.17.2",
+    "fetch": "^1.1.0",
     "parse-json": "^6.0.2"
   }
 }
