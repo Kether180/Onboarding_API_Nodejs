@@ -142,12 +142,12 @@ app.get("/file", async (req, res) => {
   }
 });
 
-// subscribe events.
+// subscribe events. We need to use ngrok which is a cross-platform application that exposes local server ports to the Internet. 
 
 app.post("/subscribe", function (req, res) {
 
 	console.log(req.body);
-	res.setHeader('Content-Type', 'application/octet-stream');
+	res.setHeader('Content-Type', 'application/json');
 
 	res.end(
     JSON.stringify({
@@ -158,32 +158,40 @@ app.post("/subscribe", function (req, res) {
 var server = app.listen(4000, function () {
    var host = server.address().address
    var port = server.address().port
-   console.log("Example app listening at http://%s:%s", host, port)
+   console.log("Example app listening at http://%s:%s", host, port)   // x~hYJXMKeXx5XTmFUK>R~0#~
 })
 
-console.log('Navigate to http://localhost:4000/subscribe.');
+console.log('Navigate to http://localhost:4000/subscribe.'); // to receive events just press the test button at EXPORT API HELLO FLOW site and you should be receving events on init submit etc. 
+
+//  Responding to the challenge : Once you receive the event, complete the sequence by responding with HTTP 200 and the challenge attribute value.
 
 }); 
 
 
-/*
+const WEBHOOK_TOKEN = "9-F-qkB-JFt5Jhav-jTdYCaR";
 
- const fs = require('fs');
+app.post('/subscribe/webhook',
+  bodyParser.urlencoded({ extended: true }),
+  function(req, res) {
+      const token = req.body.secret;
+      if (token !== WEBHOOK_TOKEN) {
+          res.status(403).end();
+          return;
+      }
 
-let pasingJSON
+      if (req.body.event == 'incoming_message') {
+        const content = req.body.content;
+        const from_number = req.body.from_number;
+        const phone_id = req.body.phone_id;
 
-fs.readFile('./exportApi.json', 'utf8', (err, jsonString) => {
-  if (err) {
-    console.log('File read failed:', err);
-    return;
+        // do something with the message, e.g. send an autoreply
+        res.json({
+          messages: [
+            { content: "Thanks for your message!" }
+          ]
+        });
+      }
+
+      res.status(200).end();
   }
-
-  try {
-    const exportApi = JSON.parse(jsonString);
-    console.log('Postman Hello Flow data:', loading);
-  } catch (err) {
-  console.log('Error parsing JSON:', err);
-
-  }
-}); 
-    */
+);
