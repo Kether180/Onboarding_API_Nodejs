@@ -1,4 +1,4 @@
-# On boarding Integration Tool for Makeimpact Investments - Backend
+# On boarding Integration Tool - Backend
 
 Client onboarding process / API
 
