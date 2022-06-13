@@ -16,7 +16,7 @@ console.log(`Express server is running on port ${port}`);
 
 
 
-//  get Access to the Hello Flow data 
+//  get Access to data 
 
 app.get("/", async (req, res) => {
   try {
@@ -116,7 +116,7 @@ app.get("/flow", async (req, res) => {
   }
 }); 
 
-// this is for files , filedata from our Hello Flow builder. you get the key  from response data , and it will be called fileData.  Take fileData from each client as key.
+// this is for files , filedata from our Flow builder. you get the key  from response data , and it will be called fileData.  Take fileData from each client as key.
 
 app.get("/file", async (req, res) => {
   const file = req.params.file;
