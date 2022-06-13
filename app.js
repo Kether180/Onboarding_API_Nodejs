@@ -26,9 +26,9 @@ app.get("/", async (req, res) => {
 
       params: {
 
-        "clientId": "63894863750735455373699675",
+        "clientId": "Xxx",
 
-        "clientSecret": "1WPWrl21##tz#~g86SgWhL!gDnkK6Fi6"
+        "clientSecret": "xxx"
 
       }
 
